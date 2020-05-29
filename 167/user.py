@@ -25,7 +25,7 @@ class User:
            If this is your first property, check out:
            https://pybit.es/property-decorator.html
         """
-        user_name = self.first_name[:3].lower() + self.last_name[:7].lower()
+        user_name = self.first_name[0].lower() + self.last_name[:7].lower()
         return user_name
 
     # add a __str__ and a __repr__
