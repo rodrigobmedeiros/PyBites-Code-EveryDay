@@ -2,7 +2,7 @@
 
 This repo will be used to solve pybites from [Py bites Challenges](https://codechalleng.es). There are more the 270 python challenges and the idea is solve at least one a day. I will include the resolved pybites daily.
 
-# Bite 19 - Write a simple property
+# Bite 19 - Write a simple property - 28/05/2020
 
 Write a simple Promo class. Its constructor receives a name `str` and expires `datetime`.
 
