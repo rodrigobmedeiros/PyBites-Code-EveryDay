@@ -35,7 +35,7 @@ class User:
     # see also TESTS for required output
 
     def __str__(self):
-        return f'{self.get_full_name()} ({self.username()})'
+        return f'{self.get_full_name} ({self.username})'
 
     def __repr__(self):
         """Don't hardcode the class name, hint: use a
