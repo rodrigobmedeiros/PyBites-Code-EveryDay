@@ -11,3 +11,5 @@ Add a property called expired which returns a boolean value indicating whether t
 Checkout the tests and datetime module for more info. Have fun!
 
 Check the solution -> [click here]('https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/19/simple_property.py') 
+
+Insight: Use @property to create a get method that will be called instead of acess the attribute directly.
