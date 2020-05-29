@@ -41,5 +41,5 @@ class User:
         """Don't hardcode the class name, hint: use a
            special attribute of self.__class__ ...
         """
-        return f'User({self.first_name.lower()}, {self.last_name.lower()})'
+        return f'User({self.first_name}, {self.last_name})'
 
