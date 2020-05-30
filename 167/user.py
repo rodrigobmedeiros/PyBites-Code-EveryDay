@@ -41,5 +41,5 @@ class User:
         """Don't hardcode the class name, hint: use a
            special attribute of self.__class__ ...
         """
-        return f'{self.__class__}("{self.first_name}", "{self.last_name}")'
+        return f'{self.__class__.__name__}("{self.first_name}", "{self.last_name}")'
 
