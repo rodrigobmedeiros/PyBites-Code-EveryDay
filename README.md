@@ -13,3 +13,13 @@ Checkout the tests and datetime module for more info. Have fun!
 Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/19/simple_property.py) 
 
 Insight: Use @property to create a get method that will be called instead of acess the attribute directly.
+
+# Bite 19 - Complete a User class: properties and representation dunder methods - 29/05/2020
+
+In this Bite you are presented with another class, `User` this time.
+
+Like last Bite you are asked to complete it, see the `TODO`s in the code below:
+
+Complete the `get_full_name` property (more on properties here) that prints first and last name separated by a space.
+Complete the `username` property following its docstring.
+Complete the special representation dunder methods: `__str__` and `__repr__`. Look at the tests what they should return. Brace yourself for some bonus learning for a twist we added in `__repr__` (but as it's a Beginner Bite we give you a hint!)
