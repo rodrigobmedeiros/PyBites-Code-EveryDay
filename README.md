@@ -14,7 +14,7 @@ Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-C
 
 Insight: Use @property to create a get method that will be called instead of acess the attribute directly.
 
-# Bite 19 - Complete a User class: properties and representation dunder methods - 29/05/2020
+# Bite 167 - Complete a User class: properties and representation dunder methods - 29/05/2020
 
 In this Bite you are presented with another class, `User` this time.
 
