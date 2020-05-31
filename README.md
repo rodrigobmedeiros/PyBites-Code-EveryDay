@@ -37,6 +37,13 @@ Hence you are provided with a BITES constant and a bites_done set that gets pass
 _pick_random_bite is a helper (_ here means private) that picks a randomly available Bite. When no more Bites are available raise a NoBitesAvailable (provided).
 new_bite should use this helper and update self.bites_done (it keeps state, the reason we used a class here).
 
-Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/167/user.py)
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/25/promo.py)
 
-Insight: Finally, I understand what @property is although I've ever used this before. This decorator is used to create an method that will be viewed as a attribute by the user. So I'll protect my real attribute or just manipulate information with some logic implemented.
+Insights:
+
+- An empty list returns False when used as boolean, so if I need to verify if a list is empty can use "not list".
+- Changing a dict into a list returns a list of keys.
+- Using random module, there are two ways to get a random value from a sequence.
+  - random.choice(seq) - return a single value from seq.
+  - random.sample(seq, k) - return a list with k random values. We have to remember that if I want just one element, define k = 1 and use 0 index to get the value.
+  - To finish, use again @property to define an attribute as a method.
