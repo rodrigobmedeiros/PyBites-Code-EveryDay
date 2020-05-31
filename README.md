@@ -27,3 +27,16 @@ Complete the special representation dunder methods: `__str__` and `__repr__`. Lo
 Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/167/user.py)
 
 Insight: Finally, I understand what @property is although I've ever used this before. This decorator is used to create an method that will be viewed as a attribute by the user. So I'll protect my real attribute or just manipulate information with some logic implemented.
+
+# Bite 25 - No promo twice, keep state in a class - 31/05/2020
+
+In this bite a real world scenario: PyBites has a growing set of Bites and gives away promos. They choose a Bite randomly but don't want to choose the same one again.
+
+Hence you are provided with a BITES constant and a bites_done set that gets passed into the class via its constructor. Complete the methods in the Promo class:
+
+_pick_random_bite is a helper (_ here means private) that picks a randomly available Bite. When no more Bites are available raise a NoBitesAvailable (provided).
+new_bite should use this helper and update self.bites_done (it keeps state, the reason we used a class here).
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/167/user.py)
+
+Insight: Finally, I understand what @property is although I've ever used this before. This decorator is used to create an method that will be viewed as a attribute by the user. So I'll protect my real attribute or just manipulate information with some logic implemented.
