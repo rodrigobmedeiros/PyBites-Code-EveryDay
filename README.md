@@ -47,3 +47,39 @@ Insights:
   - random.choice(seq) - return a single value from seq.
   - random.sample(seq, k) - return a list with k random values. We have to remember that if I want just one element, define k = 1 and use 0 index to get the value.
   - To finish, use again @property to define an attribute as a method.
+  
+  # Bite 71 - Keep state in a class + make its instance callable - 31/05/2020
+
+In this Bite you write a small class to keep track of the max score in a game. When called as a function it receives a new score and returns the max score. Note it should work with negative numbers as well.
+
+This is how it should work:
+
+  >>> from record import RecordScore
+
+  >>> record = RecordScore()
+  >>> print(record(10))
+  10
+  >>> print(record(9))
+  10
+  >>> print(record(11))  # new max
+  11
+
+  >>> record = RecordScore()
+  >>> print(record(-5))
+  -5
+  >>> print(record(-10))
+  -5
+  >>> print(record(-2))  # new max
+  -2
+  
+Use the __call__ dunder ("special") method to make the RecordScore class callable.
+
+Good luck and keep calm and code in Python!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/71/record.py)
+
+Insights:
+
+- __call__ method is used to call an object as a function.
+- To define the minimum number possible just make `var = float('-inf')`
+- Get the hightest number between two options: `var = max(num1, num2)`
