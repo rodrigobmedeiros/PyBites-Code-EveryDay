@@ -48,7 +48,7 @@ Insights:
   - random.sample(seq, k) - return a list with k random values. We have to remember that if I want just one element, define k = 1 and use 0 index to get the value.
   - To finish, use again @property to define an attribute as a method.
   
-  # Bite 71 - Keep state in a class + make its instance callable - 03/06/2020
+# Bite 71 - Keep state in a class + make its instance callable - 03/06/2020
 
 In this Bite you write a small class to keep track of the max score in a game. When called as a function it receives a new score and returns the max score. Note it should work with negative numbers as well.
 
