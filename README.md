@@ -85,3 +85,33 @@ Insights:
 - `__call__` method is used to call an object as a function.
 - To define the minimum number possible just make `var = float('-inf')`
 - Get the hightest number between two options: `var = max(num1, num2)`
+
+# Bite 95 - Subclass the dict built-in - 05/06/2020
+
+In this Bite you will subclass the dict built-in to support a birthday dictionary.
+
+This dictionary takes names as keys and birthday dates as values. Implement the __setitem__ dunder method to print a message every time somebody gets added with a birthday that is already in the dictionary. It should work like this when running it in the REPL:
+
+  >>> from datetime import date
+  >>> from bdaydict import BirthdayDict
+  >>> bd = BirthdayDict()
+  >>> bd['bob'] = date(1987, 6, 15)
+  >>> bd['tim'] = date(1984, 7, 15)
+  >>> bd['mary'] = date(1987, 6, 15)  # whole date match
+  Hey mary, there are more people with your birthday!
+  >>> bd['sara'] = date(1987, 6, 14)
+  >>> bd['mike'] = date(1981, 7, 15)  # day + month match
+  Hey mike, there are more people with your birthday!
+So if day and month are the same, you have a match, the year can be different. Use MSG to print the message, string replacing it with the name key of the newly added person.
+
+Note that this exercise is to get you thinking about subclasses and extending built-in behavior. There is a caveat though: the code of the built-ins (written in C) does not call special methods overriden by user-defined classes (source: Fluent Python), so use this with caution.
+
+Good luck and have fun!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/edit/master/95/bdaydict.py) 
+
+Insight:
+- Use of any() and all() to return True or False when analyze information into lists.
+- User os super() to access a method from parent class. It was nice because I just complement the original implementation.
+- Use of date.strftime() to converte data info into strings. For example: birthday = date(2000, 5, 30) birthday.strftime('%d') returns a string '30'.
+- Use criativity to create a new class based on a built-in class, in this case the dict class.
