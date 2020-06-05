@@ -92,6 +92,7 @@ In this Bite you will subclass the dict built-in to support a birthday dictionar
 
 This dictionary takes names as keys and birthday dates as values. Implement the __setitem__ dunder method to print a message every time somebody gets added with a birthday that is already in the dictionary. It should work like this when running it in the REPL:
 
+```python
   >>> from datetime import date
   >>> from bdaydict import BirthdayDict
   >>> bd = BirthdayDict()
@@ -102,6 +103,8 @@ This dictionary takes names as keys and birthday dates as values. Implement the 
   >>> bd['sara'] = date(1987, 6, 14)
   >>> bd['mike'] = date(1981, 7, 15)  # day + month match
   Hey mike, there are more people with your birthday!
+```
+
 So if day and month are the same, you have a match, the year can be different. Use MSG to print the message, string replacing it with the name key of the newly added person.
 
 Note that this exercise is to get you thinking about subclasses and extending built-in behavior. There is a caveat though: the code of the built-ins (written in C) does not call special methods overriden by user-defined classes (source: Fluent Python), so use this with caution.
