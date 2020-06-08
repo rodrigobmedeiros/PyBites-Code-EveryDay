@@ -138,4 +138,7 @@ Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-C
 
 Insights: 
 1) Use method dict.get() to set a default value if the key you are looking for does not yet exist.
-2) ```python from string import hxdigits``` use hexdigits to import all hexadecimal digits into a string
+2) ```from string import hxdigits``` use hexdigits to import all hexadecimal digits into a string.
+3) ```string.startswith()``` use this method to verify the first character (or a set of initial characters) of a string.
+4) ```isinstance()``` use this built-in function to verify if an object belongs to a certain class.
+5) ```@staticmethod``` class method that can be used without necessarily instantiating an object.
