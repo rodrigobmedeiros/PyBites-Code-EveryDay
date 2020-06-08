@@ -136,4 +136,6 @@ Good luck!
 
 Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/114/color.py) 
 
-Insight: Use @property to create a get method that will be called instead of acess the attribute directly.
+Insights: 
+1) Use method dict.get() to set a default value if the key you are looking for does not yet exist.
+2) ```python from string import hxdigits``` use hexdigits to import all hexadecimal digits into a string
