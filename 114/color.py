@@ -22,20 +22,42 @@ class Color:
     """
 
     def __init__(self, color):
-        pass
-
-    def hex2rgb(...
+        
+        self.color = color
+        self.rgb = COLOR_NAMES.get(color.upper(), None)
+    
+    @staticmethod
+    def hex2rgb(hex_format):
         """Class method that converts a hex value into an rgb one"""
-        pass
-
-    def rgb2hex(...
+        rgb_format = (int(hex_format[1:3], base=16), int(hex_format[3:5], base=16),
+        int(hex_format[5:7], base=16))
+        
+        return rgb_format
+    
+    @staticmethod
+    def rgb2hex(rgb):
         """Class method that converts an rgb value into a hex one"""
-        pass
+        
+        test_limits = [True if x in range(0,256) else False for x in rgb]
+
+        if not all(test_limits):
+    
+            raise ValueError
+        
+        hex_list = [hex(x) for x in rgb]
+        num_list = [x[2:] if len(x[2:]) == 2 else '0' + x[2:] for x in hex_list]
+        hex_format = '#{}{}{}'.format(num_list[0], num_list[1], num_list[2])
+        
+        return hex_format
 
     def __repr__(self):
         """Returns the repl of the object"""
-        pass
+        
+        str_repr = "Color('{}')".format(self.color)
+        return str_repr
 
     def __str__(self):
         """Returns the string value of the color object"""
-        pass
+        
+        str_color = 'Unknown' if self.rgb == None else str(self.rgb)
+        return str_color
