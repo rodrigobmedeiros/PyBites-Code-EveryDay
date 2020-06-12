@@ -143,7 +143,7 @@ Insights:
 4) ```isinstance()``` use this built-in function to verify if an object belongs to a certain class.
 5) ```@staticmethod``` class method that can be used without necessarily instantiating an object.
 
-# Bite 138 - Write a simple property - 28/05/2020
+# Bite 138 - Write a simple property - 12/06/2020
 
 Finish the `Animal` class below adding one or more class variables and a `classmethod` so that the following code:
 
@@ -158,11 +158,14 @@ print(Animal.zoo())
 
 produces the following output:
 
+```
 10001. Dog
 10002. Cat
 10003. Fish
 10004. Lion
 10005. Mouse
+```
+
 Few things to note here:
 
 The sequencing starts at 10000,
