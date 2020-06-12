@@ -147,13 +147,16 @@ Insights:
 
 Finish the `Animal` class below adding one or more class variables and a `classmethod` so that the following code:
 
->>> dog = Animal('dog')
->>> cat = Animal('cat')
->>> fish = Animal('fish')
->>> lion = Animal('lion')
->>> mouse = Animal('mouse')
->>> print(Animal.zoo())
-... produces the following output:
+'''python
+dog = Animal('dog')
+cat = Animal('cat')
+fish = Animal('fish')
+lion = Animal('lion')
+mouse = Animal('mouse')
+print(Animal.zoo())
+'''
+
+produces the following output:
 
 10001. Dog
 10002. Cat
