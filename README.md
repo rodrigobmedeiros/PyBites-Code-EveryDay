@@ -147,14 +147,14 @@ Insights:
 
 Finish the `Animal` class below adding one or more class variables and a `classmethod` so that the following code:
 
-'''python
+```python
 dog = Animal('dog')
 cat = Animal('cat')
 fish = Animal('fish')
 lion = Animal('lion')
 mouse = Animal('mouse')
 print(Animal.zoo())
-'''
+```
 
 produces the following output:
 
@@ -170,8 +170,10 @@ Each animal gets title cased,
 An individual animal should print the sequence+name string as well, so best to implement the `__str__` method on the class.
 So making another animal at this point, the following should work:
 
->>> horse = Animal('horse')
->>> assert str(horse) == "10006. Horse"
+```python
+horse = Animal('horse')
+assert str(horse) == "10006. Horse"
+```
 
 As usual this is what the `pytest` code tests when you submit your code.
 
