@@ -189,4 +189,3 @@ Insights:
 - `@classmethod` to define methods that can be used without instantiating a class object.
 - Use _ to define attributes that should not be used externally. This definition is good practice but does not effectively prevent the attribute from being used.
 - `import itertools` can be used to define an infinite counter. Define `it = itertool.count(start= , step= )` and use `next(it)` to jump into next number in iterator.
-- 
