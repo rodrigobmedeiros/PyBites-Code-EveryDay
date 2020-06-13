@@ -202,9 +202,9 @@ In this Bite we have you write a data class called `Bite` that managed 3 attribu
 
 There are 3 more requirements:
 
-title needs to be capitalized upon instantiation (you get a hint in the tests for this one :) - make sure to read the tests for additonal specs, including some of the differences between `data classes` and `namedtuples`!)
-level takes a default argument of Beginner.
-A collection of Bite instances needs to be orderable (using `sort` / `sorted` - this is not by default but configurable ...)
+1) title needs to be capitalized upon instantiation (you get a hint in the tests for this one :) - make sure to read the tests for additonal specs, including some of the differences between `data classes` and `namedtuples`!)
+2) level takes a default argument of Beginner.
+3) A collection of Bite instances needs to be orderable (using `sort` / `sorted` - this is not by default but configurable ...)
 Good luck and keep up with the language, exciting new things are getting added!
 On that note feel free to make us more Bite requests via our Bites homepage (you'll find a form per Bite level at the bottom of the page ...)
 
