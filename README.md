@@ -216,4 +216,4 @@ Insights:
 
 - Learn about `data classes`, we can use it to start a new class with some magic methods pre-defined. 
 - In the default setting, any dataclass will implement `__init__`, `__repr__`, `__str__` and `__eq__`.
-- One of the best insights until now: If you want to make a object sortable when into a collection, just define the magic methods of the class: `__eq__`, `__gt__`, `__ge__`, `__lt__` and `__le__´.
+- One of the best insights until now: If you want to make a object sortable when into a collection, just define the magic methods of the class: `__eq__`, `__gt__`, `__ge__`, `__lt__` and `__le__`.
