@@ -189,3 +189,31 @@ Insights:
 - `@classmethod` to define methods that can be used without instantiating a class object.
 - Use _ to define attributes that should not be used externally. This definition is good practice but does not effectively prevent the attribute from being used.
 - `import itertools` can be used to define an infinite counter. Define `it = itertool.count(start= , step= )` and use `next(it)` to jump into next number in iterator.
+
+# Bite 154 - Write your own data class - 13/06/2020
+
+As you might have noticed we are now on Python 3.7 so time for a Bite on data classes which were introduced with [PEP 557](https://www.python.org/dev/peps/pep-0557/).
+
+What are they? Raymond Hettinger summarized it nicely [in his great talk](https://www.youtube.com/watch?v=T-TwcmT6Rcw): a mutible named tuple with defaults.
+
+One advantage is the code it saves you typing so they might become an essential part of your Python toolkit!
+
+In this Bite we have you write a data class called `Bite` that managed 3 attributes: number, title, and level. Their types are `int`, `str` and `str` respectively.
+
+There are 3 more requirements:
+
+title needs to be capitalized upon instantiation (you get a hint in the tests for this one :) - make sure to read the tests for additonal specs, including some of the differences between `data classes` and `namedtuples`!)
+level takes a default argument of Beginner.
+A collection of Bite instances needs to be orderable (using `sort` / `sorted` - this is not by default but configurable ...)
+Good luck and keep up with the language, exciting new things are getting added!
+On that note feel free to make us more Bite requests via our Bites homepage (you'll find a form per Bite level at the bottom of the page ...)
+
+For more resources on data classes we recommned watching [Hettinger's talk](https://codechalleng.es/bites/) as well as reading through Anthony Shaw's [A brief tour of Python 3.7 data classes](https://hackernoon.com/a-brief-tour-of-python-3-7-data-classes-22ee5e046517). Have fun!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/154/dc.py) 
+
+Insights:
+
+- Learn about `data classes`, we can use it to start a new class with some magic methods pre-defined. 
+- In the default setting, any dataclass will implement `__init__`, `__repr__`, `__str__` and `__eq__`.
+- One of the best insights until now: If you want to make a object sortable when into a collection, just define the magic methods of the class: `__eq__`, `__gt__`, `__ge__`, `__lt__` and `__le__´.
