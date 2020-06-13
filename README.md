@@ -142,3 +142,50 @@ Insights:
 3) ```string.startswith()``` use this method to verify the first character (or a set of initial characters) of a string.
 4) ```isinstance()``` use this built-in function to verify if an object belongs to a certain class.
 5) ```@staticmethod``` class method that can be used without necessarily instantiating an object.
+
+# Bite 138 - Write a simple property - 12/06/2020
+
+Finish the `Animal` class below adding one or more class variables and a `classmethod` so that the following code:
+
+```python
+dog = Animal('dog')
+cat = Animal('cat')
+fish = Animal('fish')
+lion = Animal('lion')
+mouse = Animal('mouse')
+print(Animal.zoo())
+```
+
+produces the following output:
+
+```
+10001. Dog
+10002. Cat
+10003. Fish
+10004. Lion
+10005. Mouse
+```
+
+Few things to note here:
+
+The sequencing starts at 10000,
+Each animal gets title cased,
+An individual animal should print the sequence+name string as well, so best to implement the `__str__` method on the class.
+So making another animal at this point, the following should work:
+
+```python
+horse = Animal('horse')
+assert str(horse) == "10006. Horse"
+```
+
+As usual this is what the `pytest` code tests when you submit your code.
+
+Have fun and code more Python! Join our thriving Slack Community under Settings to learn together with other passionate Pythonistas ...
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/138/zoo.py) 
+
+Insights:
+- Class attributes to define variables common to all instances.
+- `@classmethod` to define methods that can be used without instantiating a class object.
+- Use _ to define attributes that should not be used externally. This definition is good practice but does not effectively prevent the attribute from being used.
+- `import itertools` can be used to define an infinite counter. Define `it = itertool.count(start= , step= )` and use `next(it)` to jump into next number in iterator.
