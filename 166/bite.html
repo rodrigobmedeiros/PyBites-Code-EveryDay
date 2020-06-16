@@ -1,0 +1,10 @@
+<p><i>The INI file format is an informal standard for configuration files for some platforms or software.</i> (<a href="https://en.wikipedia.org/wiki/INI_file">Wikipedia</a>).</p><p>In this Bite you will use <code>configparser</code> to parse a <a href="https://tox.readthedocs.io/en/latest/">tox</a> <i>ini file</i>.</p><p>Complete the <code>ToxIniParser</code> class, completing the <i>stub properties</i> making the tests happy.</p><p>Eh <i>properties</i>? No worries, <a href="https://pybit.es/property-decorator.html" target="_blank">we got your back</a>!</p><p>See the <i>TESTS</i> tab. There is a lot of ini file data, so scroll down to the actual tests ...</p><p>Additionally here is how it would work in the Python REPL using <a href="https://bites-data.s3.us-east-2.amazonaws.com/django-tox.ini" target="_blank">a copy of Django's tox ini file</a> saved to my local /tmp folder:<pre>
+  >>> from ini import ToxIniParser
+  >>> tox = ToxIniParser('/tmp/django-tox.ini')
+  >>> tox.number_of_sections
+  7
+  >>> tox.environments
+  ['py3', 'flake8', 'docs', 'isort']
+  >>> tox.base_python_versions
+  ['python3']
+</pre></p><p>Good luck and keep calm and code in Python!</p>
