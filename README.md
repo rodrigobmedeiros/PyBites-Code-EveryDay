@@ -222,7 +222,7 @@ Insights:
 
 The INI file format is an informal standard for configuration files for some platforms or software. ([Wikipedia](https://en.wikipedia.org/wiki/INI_file)).
 
-In this Bite you will use `configparser` to parse a [tox[(https://tox.readthedocs.io/en/latest/) _ini file_.
+In this Bite you will use `configparser` to parse a [tox](https://tox.readthedocs.io/en/latest/) _ini file_.
 
 Complete the `ToxIniParser` class, completing the stub properties making the tests happy.
 
