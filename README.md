@@ -217,3 +217,37 @@ Insights:
 - Learn about `data classes`, we can use it to start a new class with some magic methods pre-defined. 
 - In the default setting, any dataclass will implement `__init__`, `__repr__`, `__str__` and `__eq__`.
 - One of the best insights until now: If you want to make a object sortable when into a collection, just define the magic methods of the class: `__eq__`, `__gt__`, `__ge__`, `__lt__` and `__le__`.
+
+# Bite 166 - Complete a tox ini file parser class - 16/06/2020
+
+The INI file format is an informal standard for configuration files for some platforms or software. ([Wikipedia](https://en.wikipedia.org/wiki/INI_file)).
+
+In this Bite you will use `configparser` to parse a [tox](https://tox.readthedocs.io/en/latest/) _ini file_.
+
+Complete the `ToxIniParser` class, completing the stub properties making the tests happy.
+
+Eh properties? No worries, [we got your back](https://pybit.es/property-decorator.html)!
+
+See the TESTS tab. There is a lot of ini file data, so scroll down to the actual tests ...
+
+Additionally here is how it would work in the Python REPL using [a copy of Django's tox ini file](https://bites-data.s3.us-east-2.amazonaws.com/django-tox.ini) saved to my local /tmp folder:
+
+```python
+  from ini import ToxIniParser
+  tox = ToxIniParser('/tmp/django-tox.ini')
+  tox.number_of_sections
+  7
+  tox.environments
+  ['py3', 'flake8', 'docs', 'isort']
+  tox.base_python_versions
+  ['python3']
+```
+
+Good luck and keep calm and code in Python!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/166/ini.py) 
+
+Insights:
+
+- Use the module configparser to work with .ini files.
+- Use set() to create a collection withoud repeated elements.
