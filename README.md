@@ -251,3 +251,48 @@ Insights:
 
 - Use the module configparser to work with .ini files.
 - Use set() to create a collection withoud repeated elements.
+
+# Bite 199 - Multiple inheritance (__mro__) - 18/06/2020
+
+Implement the following class structure: print(Child.__mro__):
+```
+(<class '__main__.Child'>,
+ <class '__main__.Father'>,
+ <class '__main__.Mother'>,
+ <class '__main__.Person'>,
+ <class 'object'>)
+ ```
+ 
+Each class has the following string representation:
+
+```
+person = Person()
+dad = Father()
+mom = Mother()
+child = Child()
+
+print(person)
+print(dad)
+print(mom)
+print(child)
+```
+
+Output:
+
+```
+I am a person
+I am a person and cool daddy
+I am a person and awesome mom
+I am the coolest kid
+```
+
+You should use inheritance here, so the I am a person substring should only occur in the Person base class.
+
+Good luck and keep calm and code in Python!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/199/person.py) 
+
+Insights:
+
+- Use super() to get the mother class method `__str__`.
+- Use `__mro__` to consult an object inheritance
