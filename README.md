@@ -296,3 +296,27 @@ Insights:
 
 - Use super() to get the mother class method `__str__`.
 - Use `__mro__` to consult an object inheritance
+
+# Bite 011 - Enrich a class with dunder methods - 29/06/2020
+
+Let's enrich an Account class by adding dunder (aka special) methods to support the following:
+
+length of the object: `len(acc)` returns the number of transactions
+account comparison: `acc1 >,<,>=.<=,== acc2` returns a boolean comparing account balances
+indexing: `acc[n]` shows the nth transaction onaccount (0 based)
+iteration: `list(acc)` returns a sequence of account transactions
+operator overloading: `acc + int` and `acc - int` can be used to add/subtract money
+string representation: `str(acc)` returns NAME account - balance: INT
+The provided template already does some setup for you.
+Check out the tests for more specifics. Good luck!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/011/account.py) 
+
+Insights:
+
+- Use the class decorator @total_ordering and just define `__eq__` and `__lt__` to define all other ordering methods.
+- `__getitem__` -> Used to return a value when you access the object with a index.
+- `__len__` -> Return a value when use len() built-in function.
+- `__add__` -> Define operation when add two objects, in this case return a sum between an object and an integer.
+- `__sub__` -> Same thing of `__add__` but with subtraction.
+- `__list__` -> Define what will be returned when use list() built-in function.
