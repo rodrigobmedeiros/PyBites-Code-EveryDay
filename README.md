@@ -2,7 +2,7 @@
 
 This repo will be used to solve pybites from [Py bites Challenges](https://codechalleng.es). There are more the 270 python challenges and the idea is solve at least one a day. I will include the resolved pybites daily.
 
-# Bite 19 - Write a simple property - 28/05/2020
+# Bite 019 - Write a simple property - 28/05/2020
 
 Write a simple Promo class. Its constructor receives a name `str` and expires `datetime`.
 
@@ -28,7 +28,7 @@ Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-C
 
 Insight: Finally, I understand what @property is although I've ever used this before. This decorator is used to create an method that will be viewed as a attribute by the user. So I'll protect my real attribute or just manipulate information with some logic implemented.
 
-# Bite 25 - No promo twice, keep state in a class - 31/05/2020
+# Bite 025 - No promo twice, keep state in a class - 31/05/2020
 
 In this bite a real world scenario: PyBites has a growing set of Bites and gives away promos. They choose a Bite randomly but don't want to choose the same one again.
 
@@ -48,7 +48,7 @@ Insights:
   - random.sample(seq, k) - return a list with k random values. We have to remember that if I want just one element, define k = 1 and use 0 index to get the value.
   - To finish, use again @property to define an attribute as a method.
   
-# Bite 71 - Keep state in a class + make its instance callable - 03/06/2020
+# Bite 071 - Keep state in a class + make its instance callable - 03/06/2020
 
 In this Bite you write a small class to keep track of the max score in a game. When called as a function it receives a new score and returns the max score. Note it should work with negative numbers as well.
 
@@ -86,7 +86,7 @@ Insights:
 - To define the minimum number possible just make `var = float('-inf')`
 - Get the hightest number between two options: `var = max(num1, num2)`
 
-# Bite 95 - Subclass the dict built-in - 05/06/2020
+# Bite 095 - Subclass the dict built-in - 05/06/2020
 
 In this Bite you will subclass the dict built-in to support a birthday dictionary.
 
@@ -296,3 +296,27 @@ Insights:
 
 - Use super() to get the mother class method `__str__`.
 - Use `__mro__` to consult an object inheritance
+
+# Bite 011 - Enrich a class with dunder methods - 29/06/2020
+
+Let's enrich an Account class by adding dunder (aka special) methods to support the following:
+
+length of the object: `len(acc)` returns the number of transactions
+account comparison: `acc1 >,<,>=.<=,== acc2` returns a boolean comparing account balances
+indexing: `acc[n]` shows the nth transaction onaccount (0 based)
+iteration: `list(acc)` returns a sequence of account transactions
+operator overloading: `acc + int` and `acc - int` can be used to add/subtract money
+string representation: `str(acc)` returns NAME account - balance: INT
+The provided template already does some setup for you.
+Check out the tests for more specifics. Good luck!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/011/account.py) 
+
+Insights:
+
+- Use the class decorator @total_ordering and just define `__eq__` and `__lt__` to define all other ordering methods.
+- `__getitem__` -> Used to return a value when you access the object with a index.
+- `__len__` -> Return a value when use len() built-in function.
+- `__add__` -> Define operation when add two objects, in this case return a sum between an object and an integer.
+- `__sub__` -> Same thing of `__add__` but with subtraction.
+- `__list__` -> Define what will be returned when use list() built-in function.
