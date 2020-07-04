@@ -320,3 +320,23 @@ Insights:
 - `__add__` -> Define operation when add two objects, in this case return a sum between an object and an integer.
 - `__sub__` -> Same thing of `__add__` but with subtraction.
 - `__list__` -> Define what will be returned when use list() built-in function.
+
+# Bite 020 - Write a context manager - 30/06/2020
+
+Write a context manager to roll back a transaction on the given `Account` class.
+
+There are two special (aka dunder) methods you need to define to create a context manager (there is also a convenient decorator - see Bite 88).
+
+The purpose of the context manager is to roll back any transaction that will make the balance go below 0 (debt != cool). The rest of the class is already defined so you can focus on the context manager part.
+
+See the tests for more detail. Good luck and keep calm and code in Python!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/020/account.py) 
+
+Insights:
+
+- Use `__enter__` and `__exit__` dunder methods to use the object into a context (with statment).
+- In case of copy a list, use the built-in function list() in order to really create a new object.
+- The `__enter__` method return the object itself and in this case all transations was copied into a new variable.
+- If everything is ok I can consider the transations without context if not we just rollback to transations before the context.
+- It's possible to create variables to the class out of `__init__` method.
