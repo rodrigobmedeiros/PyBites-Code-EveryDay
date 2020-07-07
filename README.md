@@ -340,3 +340,31 @@ Insights:
 - The `__enter__` method return the object itself and in this case all transations was copied into a new variable.
 - If everything is ok I can consider the transations without context if not we just rollback to transations before the context.
 - It's possible to create variables to the class out of `__init__` method.
+
+# Bite 024 - ABC's and class inheritance - 04/07/2020
+
+`ABC`'s or `Abstract Base Classes` are great to enforce a common API for your subclasses.
+
+You define one or more methods and/or properties as abstract in the base class, and if the subclass does not implement them it raises a `TypeError`. In this bite you will use this concept as follows:
+
+Define a Challenge base class that inherits from `ABC` (given), its constructor receives a `number` and a `title` attribute.
+On Challenge define an `abstractmethod` called verify and an `property` (< 3.3 it would be an `abstractproperty`) called `pretty_title`.
+Create the `BlogChallenge` and `BiteChallenge` classes which both inherit from `Challenge`. _Note that they would raise a `TypeError` at this point, exactly what you want: enforcing the use of the abstract method/ property_.
+`BlogChallenge` and `BiteChallenge`'s constructors call the parent constructor (don't worry it's supercool, remember: we use Python3 so adjust your syntax), and both receive an extra argument in the constructor: `merged_prs` for `BlogChallenge` and `result` for `BiteChallenge`.
+Implement the required methods and properties, refer to the tests what they need to return.
+Get coding, learn more about classes, and have fun!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/024/challenge.py) 
+
+Insights:
+
+- Use _ABC_ metaclass to define abstract classes.
+- Use decorator _@abstractmethod_ to define methods that must be defined into child classes.
+- Use _@property_ + _@abstractmethod_ to define properties that must be define into child classes.
+- How to use it in python: 
+```python
+from abc import ABC, abstractmethod
+
+# ABC - Abstract Base Class
+# abstractmethod - Function to be used as decorator.
+```
