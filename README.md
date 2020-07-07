@@ -368,3 +368,40 @@ from abc import ABC, abstractmethod
 # ABC - Abstract Base Class
 # abstractmethod - Function to be used as decorator.
 ```
+
+# Bite 031 - Matrix Multiplication / @ operator - 04/07/2020
+
+Since 3.5 Python has a binary operator to be used for matrix multiplication: `@`, see [PEP 465 -- A dedicated infix operator for matrix multiplication](https://legacy.python.org/dev/peps/pep-0465/).
+
+The @ sign can now be used on types implementing the `__matmul__` special/magic/dunder method.
+
+It is important to note that whilst this feature shipped in 3.5, none of the standard library builtin types have matrix multiplication implementations. So let's try to implement it on a custom type for this Bite.
+
+Implement a simple class called `Matrix` that takes a list of lists in its constructor.
+
+Implement the `__matmul__`, `__rmatmul__` (reversed) and `__imatmul__` (in place) dunder methods.
+
+Yes, using `numpy` a `np.dot(self, other)` would suffice, but the point is to get you thinking about implementing @ yourself!
+
+Here is a how matrix multiplication works:
+```python
+A = [[1, 2],  [3, 4]]
+B = [[11, 12], [13, 14]]
+```
+Doing A @ B would do the following multiplications:
+
+```python
+[[1 * 11 + 2 * 13,   1 * 12 + 2 * 14],
+[3 * 11 + 4 * 13,   3 * 12 + 4 * 14]]
+```
+
+See the tests for more info. Good luck!
+
+Check the solution -> [click here](https://github.com/rodrigobmedeiros/PyBites-Code-EveryDay/blob/master/031/matmul.py) 
+
+Insights:
+
+- Use `__matmul__`, `__rmatmul__` and `__imatmul__` to define @ operations.
+- If you want to convert a multidimensional array to list, use method `tolist()` instead of the built-in funcion `list()`.
+
+
