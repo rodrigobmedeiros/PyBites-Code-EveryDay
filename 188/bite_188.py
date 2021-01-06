@@ -31,9 +31,6 @@ print(STATS)
 def get_all_line_counts(data: str = STATS) -> list:
     """Get all 186 line counts from the STATS file,
        returning a list of ints"""
-    # TODO 1: get the 186 ints from downloaded STATS file
-
-
 
     with open(STATS, 'r') as f:
         
@@ -55,20 +52,15 @@ def create_stats_report(data=None):
     # taking a sample for the last section
     sample = list(data)[::2]
 
-    # TODO 2: complete this dict, use data list and
-    # for the last 3 sample_ variables, use sample list
-    stats = dict(count=None,
-                 min_=None,
-                 max_=None,
-                 mean=None,
-                 pstdev=None,
-                 pvariance=None,
-                 sample_count=None,
-                 sample_stdev=None,
-                 sample_variance=None,
+    stats = dict(count=len(data),
+                 min_=min(data),
+                 max_=max(data),
+                 mean=sum(data) / len(data),
+                 pstdev=statistics.pstdev(data),
+                 pvariance=statistics.pvariance(data),
+                 sample_count=len(sample),
+                 sample_stdev=statistics.stdev(sample),
+                 sample_variance=statistics.variance(sample),
                  )
 
     return STATS_OUTPUT.format(**stats)
-
-teste = get_all_line_counts()
-print(teste)
