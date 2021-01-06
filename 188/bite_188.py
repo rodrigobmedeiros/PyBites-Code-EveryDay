@@ -64,3 +64,7 @@ def create_stats_report(data=None):
                  )
 
     return STATS_OUTPUT.format(**stats)
+
+
+teste = create_stats_report()
+print(teste)
