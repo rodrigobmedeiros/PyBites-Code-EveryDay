@@ -1,5 +1,6 @@
 import os
 import urllib.request
+from collections import Counter
 
 # data provided
 tmp = os.getenv("TMP", "/tmp")
@@ -23,20 +24,27 @@ def get_harry_most_common_word():
 
     with open(stopwords_file, 'r', encoding='utf8') as stopwords_file_to_read:
 
-        stop_words_text = stopwords_file_to_read.read()
+        stop_words_text = stopwords_file_to_read.readlines()
 
     for word in stop_words_text:
 
-        harry_text_to_use.replace(word, '')
+        harry_text_to_use = harry_text_to_use.replace(word.strip('\n'), ' ')
 
-    non_alpha_numerical = '!@#&()."–[{]}:;,?/*`~$^+=<>\''
+    non_alpha_numerical = '!@#&()."–[{]}:;,?/*`~$^+=<>\'-“”—’'
 
     for char in non_alpha_numerical:
 
-        print(char)
-        harry_text_to_use.replace(char, ' ')
+        harry_text_to_use = harry_text_to_use.replace(char, ' ')
 
-    return harry_text_to_use
+    harry_text_to_use = harry_text_to_use.split(' ')
+    harry_text_to_use = [word.strip('\n') for word in harry_text_to_use]
+    harry_text_to_use = [word.strip(' ') for word in harry_text_to_use]
+    harry_text_to_use = [word for word in harry_text_to_use if word not in ['', 't', 's', 'd', 'w', 'n', 'ng', 'r', 'h', 'th', 'nd', 'l', 'll', 've', 'He']]
+    harry_text_to_use = [word.lower() for word in harry_text_to_use if word not in 'abcdefghijklmnopqrstuvxyw']
+
+    cnt = Counter(harry_text_to_use)
+
+    return cnt.most_common(1)[0]
 
 
 text = get_harry_most_common_word()
