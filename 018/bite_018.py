@@ -15,7 +15,6 @@ urllib.request.urlretrieve(
     harry_text
 )
 
-
 def get_harry_most_common_word():
     
     with open(harry_text, 'r', encoding='utf8') as harry_file:
@@ -25,6 +24,8 @@ def get_harry_most_common_word():
     with open(stopwords_file, 'r', encoding='utf8') as stopwords_file_to_read:
 
         stop_words_text = stopwords_file_to_read.readlines()
+
+    stop_words_text = [word.strip().strip('\n') for word in stop_words_text]
 
     for word in stop_words_text:
 
@@ -36,9 +37,8 @@ def get_harry_most_common_word():
 
         harry_text_to_use = harry_text_to_use.replace(char, ' ')
 
-    harry_text_to_use = harry_text_to_use.split(' ')
-    harry_text_to_use = [word.strip('\n') for word in harry_text_to_use]
-    harry_text_to_use = [word.strip(' ') for word in harry_text_to_use]
+    harry_text_to_use = harry_text_to_use.split()
+    harry_text_to_use = [word.strip('\n').strip() for word in harry_text_to_use]
     harry_text_to_use = [word for word in harry_text_to_use if word not in ['', 't', 's', 'd', 'w', 'n', 'ng', 'r', 'h', 'th', 'nd', 'l', 'll', 've', 'He']]
     harry_text_to_use = [word.lower() for word in harry_text_to_use if word not in 'abcdefghijklmnopqrstuvxyw']
 
