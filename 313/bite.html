@@ -1,0 +1,8 @@
+<p>In this Bite your are provided with a <code>Domain</code> class and a <code>DomainException</code> custom exception class.</p>
+<p>You will add some validation to the current constructor to check if a valid domain name is passed in.</p>
+<p>Next you will add a <code>__str__</code> special method to represent the object (basically the name attribute) and you will write two <code>classmethod</code>s to construct domains:</p>
+<p>1. from a <strong>URL</strong></p>
+<p>2. from an <strong>email</strong></p>
+<p>Here you can see the code in action (also make sure you check out the tests):</p>
+<pre>&gt;&gt;&gt; from constructors import Domain<br />&gt;&gt;&gt; str(Domain('google.com'))<br />'google.com'<br />&gt;&gt;&gt; str(Domain.parse_url("http://pybit.es"))<br />'pybit.es'<br />&gt;&gt;&gt; domain = Domain.parse_email("julian@pybit.es")<br />&gt;&gt;&gt; type(domain)<br />&lt;class 'constructors.Domain'&gt;<br />&gt;&gt;&gt; str(domain)<br />'pybit.es'</pre>
+<p>Good luck and keep calm and code more Python!</p>
