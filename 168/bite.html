@@ -1,0 +1,19 @@
+<p>PyBites is starting a campaign to try and pair up the highest ranking Ninjas with some of the lower ranking ones. Your task is to rank the given Ninjas according to their number of Bites.</p>
+<p>We are going to delve into some <em>Object Oriented Programming</em> here because we want to retain state as we add more Ninjas to the <code>Ranking</code> class.</p>
+<p>I have laid out the structure of the script for you. Your task is to flesh out the <code>Ninja</code> and <code>Rankings</code> classes.</p>
+<p>The <code>Ninja</code> class will have the following features:</p>
+<ul>
+<li>string <code>name</code></li>
+<li>integer <code>bites</code></li>
+<li>support <code>&lt;</code>, <code>&gt;</code>, and <code>==</code>, based on <code>bites</code></li>
+<li>print out in the following format: <code>[469] bob</code></li>
+</ul>
+<p>The <code>Rankings</code> class will have the following features:</p>
+<ul>
+<li>method <code>add()</code> that adds a Ninja object to the rankings</li>
+<li>method <code>dump()</code> that removes/dumps (and returns) the lowest ranking Ninja from Rankings</li>
+<li>method <code>highest()</code> returns the highest ranking <code>Ninja</code>, but it takes an optional <code>count</code> parameter indicating how many of the highest ranking Ninjas to return</li>
+<li>method <code>lowest()</code>, the same as highest but returns the lowest ranking Ninjas, also supports an optional <code>count</code> parameter<br />returns how many Ninjas are in Rankings when <code>len()</code> is called on it</li>
+<li>a <code>pair_up()</code> method that pairs up study partners: the highest with the lowest <code>Ninja</code> of the <code>ranking</code> instance, then the second highest with the second lowest <code>Ninja</code> of the <code>ranking</code> etc. It takes an optional count parameter indicating how many Ninjas to pair up (default = <code>3</code>).</li>
+</ul>
+<p>Remember, that the standard library is your friend, best of luck!</p>
