@@ -1,0 +1,169 @@
+<p>It&rsquo;s not as bad as that sounds, really. If you don&rsquo;t know the difference between composition and inheritance, I would recommend reading up on it from <a href="https://realpython.com/inheritance-composition-python/" target="_blank" rel="noopener">Real Python</a>. As most of their articles, the subject is covered pretty thoroughly!</p>
+<h4 id="the-scenario">The scenario</h4>
+<p>So you&rsquo;ve been tasked with scraping some presidential polling sites. The plan is to create a scraper that can be used on multiple sites.</p>
+<p>I&rsquo;ve already created the following <em>namedtuples</em>, but you will need to add type hints to them:</p>
+<p><code>Candidate</code>, <code>LeaderBoard</code>, and <code>Poll</code></p>
+<blockquote>
+<p>I&rsquo;ve never tried to add type hinting to <em>namedtuples</em>, so it was a great learning experience for me and I hope to pass that experience along to you.</p>
+</blockquote>
+<p>The plan is to create the following core classes:</p>
+<ul>
+<li>File:
+<ul>
+<li>Variables:
+<ul>
+<li>name: <em>str</em></li>
+<li>path: <em>Path</em></li>
+</ul>
+</li>
+<li>Methods:
+<ul>
+<li>data -&gt; <em>Optional[str]</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Web:
+<ul>
+<li>Variables:
+<ul>
+<li>url: <em>str</em></li>
+<li>file: <em>File</em></li>
+</ul>
+</li>
+<li>Methods:
+<ul>
+<li>data -&gt; <em>Optional[str]</em></li>
+<li>soup -&gt; <em>Soup</em></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Site(<em>ABC</em>):
+<ul>
+<li>Variables:
+<ul>
+<li>web: <em>Web</em></li>
+</ul>
+</li>
+<li>Methods:
+<ul>
+<li>find_table -&gt; <em>str</em></li>
+<li>parse_rows -&gt; <em>Union[List[LeaderBoard], List[Poll]]</em></li>
+<li>polls -&gt; <em>Union[List[LeaderBoard], List[Poll]]</em></li>
+<li>stats</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Site is an abstract base class which decorates some methods with abstractmethods!</p>
+</blockquote>
+<p>If you are not familiar with Abstract Base Classes, read up on the documentation: <a href="https://docs.python.org/3/library/abc.html">ABC</a></p>
+<h4 id="adding-new-parsers">Adding new parsers</h4>
+<p>After creating the core of the application, you will have to create parsers for <a href="https://www.nytimes.com/interactive/2020/us/elections/democratic-polls.html">The New York Times</a> and <a href="https://www.realclearpolitics.com/epolls/2020/president/us/2020_democratic_presidential_nomination-6730.html#polls">RealClearPolitics</a>. Don&rsquo;t be scared by all the data, we&rsquo;re only interested in the <strong>Current State of the Race</strong> table from <em>NYTimes</em> and the third table from <em>RCP</em>. Since the tables in RCP all pretty much have the same layout, your parser should work with any of them, but that won&rsquo;t be checked.</p>
+<p>The parsers should derive from the <em>Site</em> class. While coding this, I was able to get the <code>find_table</code> method to work for all sites, so that one is not decorated with <code>@abstractmethod</code>. The other methods however, need to be overwritten in order for them to be instantiated.</p>
+<ul>
+<li>RealClearPolitics(Site):
+<ul>
+<li>Variables:
+<ul>
+<li>web: Web</li>
+</ul>
+</li>
+<li>Methods:
+<ul>
+<li>find_table -&gt; <em>str</em></li>
+<li>parse_rows -&gt; <em>List[Poll]</em></li>
+<li>polls -&gt; <em>List[Poll]</em></li>
+<li>stats</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NYTimes(Site):
+<ul>
+<li>Variables:
+<ul>
+<li>web: Web</li>
+</ul>
+</li>
+<li>Methods:
+<ul>
+<li>find_table -&gt; <em>str</em></li>
+<li>parse_rows -&gt; <em>List[Poll]</em></li>
+<li>polls -&gt; <em>List[Poll]</em></li>
+<li>stats</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="the-output-format">The output format</h4>
+<p>Each of the two different parsers will have different outputs. We&rsquo;ll just keep it simple, but there are some rules to adhere to. First, this is what sample output from each should look like.</p>
+<p id="realclearpolitics"><strong style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">NYTimes</strong></p>
+<pre>NYTimes
+=================================
+
+                   Pete Buttigieg
+---------------------------------
+National Polling Average: 10%
+       Pledged Delegates: 25
+Individual Contributions: $76.2m
+    Weekly News Coverage: 3
+
+                   Bernie Sanders
+---------------------------------
+etc..
+    Weekly News Coverage: 3
+</pre>
+<p>Things to note about this output:</p>
+<ul>
+<li>Starts and ends with blank lines</li>
+<li>There is a similar output for each of the remaining candidates:
+<ul>
+<li>Bernie Sanders</li>
+<li>Joseph R. Biden Jr.</li>
+<li>Tulsi Gabbard</li>
+</ul>
+</li>
+<li>Not shown here, but there is a blank line between each candidate</li>
+<li>There are 33 equal (<strong>=</strong>) signs and hyphens (<strong>-</strong>) in the dividers</li>
+<li>The name of the candidate is right aligned</li>
+<li>The data lines are all right aligned</li>
+<li>The values from the data lines are all left aligned</li>
+</ul>
+<blockquote>
+<p><em>etc..</em> is just a place holder, indicating that not all data was shown</p>
+</blockquote>
+<p id="nytimes"><strong style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">RealClearPolitics</strong></p>
+<pre>RealClearPolitics
+=================
+    Biden: 214.0
+  Sanders: 142.0
+  Gabbard: 6.0
+</pre>
+<p>Some things to note here.</p>
+<ul>
+<li>Starts and ends with blank line</li>
+<li>This is the whole output for this scraper</li>
+<li>There are as many equal (<strong>=</strong>) signs as the length of the title</li>
+<li>The candidate last names are right aligned</li>
+</ul>
+<h4 id="time-to-start-coding">Time to start coding</h4>
+<p>That&rsquo;s it. I&rsquo;ve scattered a generous amount of docstrings all over the code to try and make it as explicit as possible in order to help you out. When you complete this bite, you will have learned and or gained more experience with:</p>
+<ul>
+<li>Object Oriented Programming</li>
+<li>Dataclasses</li>
+<li>Inheritance</li>
+<li>Composition</li>
+<li>Abstract Base Classes
+<ul>
+<li>The <em><span class="citation" data-cites="abstractmethod">@abstractmethod</span></em> decorator</li>
+</ul>
+</li>
+<li>Type hinting <em>namedtuples</em></li>
+<li>String formatting</li>
+<li>Web scraping with BeautifulSoup</li>
+</ul>
