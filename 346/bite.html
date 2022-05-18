@@ -1,0 +1,104 @@
+<p>You are getting started with machine learning (ML)! Are you excited? I hope so.</p>
+<p><em>Machine Learning</em>, at its core, is mainly about finding the right model (or algorithm, if you like) that can learn a mapping between some input and a desired output. However, real-world problems do not start with selecting or even fine-tuning some algorithm, they start with the actual data. Sometimes, you do not even have the data yet! And when you have data, more often than not, the data is not yet ready to be used by an ML algorithm and has to be preprocessed first. This preprocessing can mean to handle missing data, handle outliers or handle categorical data like text features.</p>
+<p>Lucky for you, you will use the tiny and well-prepared Iris data set so you don't have to deal with the many problems of bad data...at least not for now!</p>
+<h3>The Machine Learning Workflow</h3>
+<p>I will include this section for all Bites related to ML so that you know where you are on your journey.</p>
+<p>There are several possible ways to define a ML workflow, but at its core, you'll often find the following steps:</p>
+<p>1. Gathering data</p>
+<p>2. Data pre-processing</p>
+<p>3. Research the model that will be best for the type of data</p>
+<p>4. Training and testing the model</p>
+<p>5. Evaluation</p>
+<p>Read <a href="https://towardsdatascience.com/workflow-of-a-machine-learning-project-ec1dba419b94" target="_blank" rel="noopener">this article</a> by Ayush Pant to learn more.</p>
+<p>This Bite is about exploratory data analysis. Step one is already done for us by scikit-learn.&nbsp;</p>
+<p>But you will not yet begin to process the data, you will start with gathering some core descriptive statistics to better understand the data.</p>
+<h3>The Iris data set</h3>
+<p>The famous Iris data set is a data set about three special plant species. You can find more information about the dataset in the <a href="https://scikit-learn.org/stable/datasets/toy_dataset.html#iris-dataset" target="_blank" rel="noopener">User Guide</a> of scikit-learn.org.&nbsp;</p>
+<p>Normally you would first have to load the dataset from some source like a database, a webpage, a Rest API or from the file system. Because this is the first Bite of the ML learning path and because this is a great opportunity to get started with one of the main ML libraries for Python, <code>scikit-learn</code>, you will use its resourceful <code>datasets</code> module. You can directly use <code>sklearn.datasets.load_iris()</code>. Please have a look at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html" target="_blank" rel="noopener">API</a> to fully understand how this method works.</p>
+<h3>Your task</h3>
+<p>Familiarize yourself with the return value of <code>load_iris()</code> and try to answer the questions in the code below. Just follow the provided docstring of each function. In this Bite you will verify the information about the iris data set provided by the scikit-learn API.</p>
+<p>Note that the provided code uses <code>load_iris(as_frame=True, return_X_y=True)</code>, so the return value will be a tuple holding the data as a pandas <code>DataFrame</code> and the target column as a pandas <code>Series</code>:</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 48.7801%;">Classes</td>
+<td style="width: 48.7801%;">3</td>
+</tr>
+<tr>
+<td style="width: 48.7801%;">Samples per class</td>
+<td style="width: 48.7801%;">50</td>
+</tr>
+<tr>
+<td style="width: 48.7801%;">Samples total</td>
+<td style="width: 48.7801%;">150</td>
+</tr>
+<tr>
+<td style="width: 48.7801%;">Dimensionality</td>
+<td style="width: 48.7801%;">4</td>
+</tr>
+<tr>
+<td style="width: 48.7801%;">Missing Attribute Values</td>
+<td style="width: 48.7801%;">None</td>
+</tr>
+<tr>
+<td style="width: 48.7801%;">Class Distribution</td>
+<td style="width: 48.7801%;">33.3% for each of 3 classes.</td>
+</tr>
+</tbody>
+</table>
+<p><br />Summary Statistics:</p>
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+<td style="width: 15.475%;">Feature</td>
+<td style="width: 15.475%;">min</td>
+<td style="width: 15.475%;">max</td>
+<td style="width: 15.475%;">mean</td>
+<td style="width: 15.475%;">std</td>
+<td style="width: 15.4764%;">corr</td>
+</tr>
+<tr>
+<td style="width: 15.475%;">sepal length</td>
+<td style="width: 15.475%;">4.3</td>
+<td style="width: 15.475%;">7.9</td>
+<td style="width: 15.475%;">5.84</td>
+<td style="width: 15.475%;">0.83</td>
+<td style="width: 15.4764%;">0.7826</td>
+</tr>
+<tr>
+<td style="width: 15.475%;">sepal width&nbsp;</td>
+<td style="width: 15.475%;">2.0</td>
+<td style="width: 15.475%;">4.4</td>
+<td style="width: 15.475%;">3.05</td>
+<td style="width: 15.475%;">0.43</td>
+<td style="width: 15.4764%;">-0.4194</td>
+</tr>
+<tr>
+<td style="width: 15.475%;">petal length</td>
+<td style="width: 15.475%;">1.0</td>
+<td style="width: 15.475%;">6.9</td>
+<td style="width: 15.475%;">3.76</td>
+<td style="width: 15.475%;">1.76</td>
+<td style="width: 15.4764%;">0.9490&nbsp; (high!)</td>
+</tr>
+<tr>
+<td style="width: 15.475%;">petal width</td>
+<td style="width: 15.475%;">0.1</td>
+<td style="width: 15.475%;">2.5</td>
+<td style="width: 15.475%;">1.20</td>
+<td style="width: 15.475%;">0.76</td>
+<td style="width: 15.4764%;">0.9565&nbsp; (high!)</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><strong>Warning</strong>: The summary statistics table is taken from the scikit-learn's documentation. This is not how you will implement the function. The function will return the summary statistics per feature, so you will have the statistics as rows and each feature as a column within your returned data frame.</p>
+<p>When you are finished with this Bite, you have learned how to conduct a simple exploratory data analysis and how to calculate descriptive summary statistics. This is the very first and basic step into ML because you need to understand your data and the knowledge you have gained here will help you better understand visualizations, conduct outlier analysis and even interpret ML model outputs.</p>
+<h3>Hints</h3>
+<p>See the detailed docstrings for each function. Sometimes there is a <strong>Hint</strong> note that gives you a hint which pandas function might help you for a particular task.</p>
+<p>This Bite expects some familiarity with the pandas library. At least the solution will be much much simpler when knowing the appropriate pandas functions.&nbsp;</p>
+<h3>Additional information for the curious</h3>
+<p>If you are curious to learn more, feel stuck or want to explore the world of ML a little bit(e) more, have a look at these resources. They are carefully selected to support you on your learning path.</p>
+<p>- <a href="https://ml-cheatsheet.readthedocs.io/en/latest/glossary.html" target="_blank" rel="noopener">ML Glossary</a> -&gt; Really helpful resource if you want to refresh a topic or the meaning of a term.</p>
+<p>- <a href="https://course.elementsofai.com/4/1" target="_blank" rel="noopener">Elements of AI</a> -&gt; A wonderful, very high quality course about Artificial Intelligence (AI) and the role of ML in relation to AI. You can even get a certificate!</p>
+<p>- <a href="https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" target="_blank" rel="noopener">Scikit-learn Cheatsheet</a> -&gt; This cheatsheet will help you find the right model for your problem at hand.</p>
