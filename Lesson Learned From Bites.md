@@ -404,4 +404,20 @@ Insights:
 - Use `__matmul__`, `__rmatmul__` and `__imatmul__` to define @ operations.
 - If you want to convert a multidimensional array to list, use method `tolist()` instead of the built-in funcion `list()`.
 
+# Bite 038
 
+## Difference between ElementTree and Element:
+
+
+XML tree and elements
+
+XML is an inherently hierarchical data format, and the most natural way to represent it is with a tree. ET has two classes for this purpose - ElementTree represents the whole XML document as a tree, and Element represents a single node in this tree. Interactions with the whole document (reading and writing to/from files) are usually done on the ElementTree level. Interactions with a single XML element and its sub-elements are done on the Element level.
+
+## Generator Functions instead generator objects
+
+In this part Bob and Julian developed the get movies function with `yield` keyword. I my case I used a function returning a generator object. This approach was very good. Actually I've just checked that It's the same but I think use `yield` better than return the complete iterator.
+
+## Use of .attrib instead of .get()
+
+.attrib is a dict containing all attributes of a tag. 
+.get() is a method to get the information from a attribute.
