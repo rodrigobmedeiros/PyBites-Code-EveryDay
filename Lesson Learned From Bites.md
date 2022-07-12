@@ -421,3 +421,27 @@ In this part Bob and Julian developed the get movies function with `yield` keywo
 
 .attrib is a dict containing all attributes of a tag. 
 .get() is a method to get the information from a attribute.
+
+# Bite 043
+
+## * to avoid positional arguments
+
+I've just learned that we can use * to avoid positional arguments. I can use it like the example below:
+
+```python
+def no_positional_args(*, key_1='key_1', key_2='key_2'):
+  pass
+```
+
+With this if I call the function passing a positional argument, I'll got an TypeError. Example: 
+
+```python
+no_positional_argument('rodrigo')
+no_positional_argument('rodrigo', key_1='key_1', key_2='key_2')
+no_positional_argument('rodrigo', key_2='key_2')
+no_positional_argument('rodrigo', key_1='key_1')
+```
+
+All tries showed before will raise an error.
+
+Take look at PEP570 for reference. [link](https://peps.python.org/pep-0570/)
