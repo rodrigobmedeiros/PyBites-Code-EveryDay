@@ -445,3 +445,15 @@ no_positional_argument('rodrigo', key_1='key_1')
 All tries showed before will raise an error.
 
 Take look at PEP570 for reference. [link](https://peps.python.org/pep-0570/)
+
+# Bite 044
+
+## string digits and ascii_uppercase
+
+natively I have these two lists from string built-in module. 
+- digits: All digits from 0-9
+- ascii_uppercase: All letters from A-Z in uppercase
+
+## random.choices
+
+Using random built-in module and funcion choices, I can create a random combination from a original list.
