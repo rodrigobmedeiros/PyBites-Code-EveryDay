@@ -16,9 +16,8 @@ def gen_key(parts: int = 4, chars_per_part: int = 8) -> str:
     """
     digits_uppercase = digits + ascii_uppercase
     
-    key = []
-    [
-        key.append(''.join(random.choices(digits_uppercase, k=chars_per_part))) 
+    key = [
+        ''.join(random.choices(digits_uppercase, k=chars_per_part)) 
         for _ in range(parts)
     ]
 
