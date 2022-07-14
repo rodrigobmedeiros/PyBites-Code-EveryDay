@@ -457,3 +457,13 @@ natively I have these two lists from string built-in module.
 ## random.choices
 
 Using random built-in module and funcion choices, I can create a random combination from a original list.
+
+# Bite 045
+
+## A little deque
+
+queu is a FIFO structure and save a lot of work while coding. In this bite, I only had to define maxlen to control the append operation. With this value defined, the length is controlled internally keeping the FIFO mechanism.
+
+## pytest.mark.parametrize
+
+with this decorator, we can parametrize test function with inumerous inputs, running as many tests we want.
