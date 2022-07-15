@@ -467,3 +467,8 @@ queu is a FIFO structure and save a lot of work while coding. In this bite, I on
 ## pytest.mark.parametrize
 
 with this decorator, we can parametrize test function with inumerous inputs, running as many tests we want.
+
+
+# Bite 046
+
+No extra learning but the bite was solved.
