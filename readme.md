@@ -477,3 +477,8 @@ No extra learning but the bite was solved.
 
 - use splitlines() to analize each line.
 - multiply string instead of repeat char.
+
+# Bite 055
+
+- Use feedparser module to parse RSS info.
+- Don't forget to use comprehensions.
