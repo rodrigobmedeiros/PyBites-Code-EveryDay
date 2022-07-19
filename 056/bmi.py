@@ -16,7 +16,7 @@ def create_parser():
     argument_parser = argparse.ArgumentParser(
         prog='calc_bmi',
         add_help=True,
-        descrition='Calculate your BMI.'
+        description='Calculate your BMI.'
     )
     argument_parser.add_argument(
         '-l', 
