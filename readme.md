@@ -472,3 +472,8 @@ with this decorator, we can parametrize test function with inumerous inputs, run
 # Bite 046
 
 No extra learning but the bite was solved.
+
+# Bite 054
+
+- use splitlines() to analize each line.
+- multiply string instead of repeat char.
