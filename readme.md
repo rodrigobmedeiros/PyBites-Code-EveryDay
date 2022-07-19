@@ -482,3 +482,12 @@ No extra learning but the bite was solved.
 
 - Use feedparser module to parse RSS info.
 - Don't forget to use comprehensions.
+
+# Bite 056
+
+- Use argparse module to develop a command line application based on bmic calculator function.
+- [argparse link to read](https://docs.python.org/3/library/argparse.html)
+- Nice to know about this library because become very easy to write a command line application. 
+- Remembering what i've done working for radix, I could do something like that.
+- About tests, I used again the context manager to test raise errors.
+- Use `capfd` parameter to access command line output (like prints).
