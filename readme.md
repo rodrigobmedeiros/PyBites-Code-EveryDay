@@ -491,3 +491,11 @@ No extra learning but the bite was solved.
 - Remembering what i've done working for radix, I could do something like that.
 - About tests, I used again the context manager to test raise errors.
 - Use `capfd` parameter to access command line output (like prints).
+
+# Bite 064
+
+In this bite an interesting feature from itertools was used.
+
+- Instead of use zip() we used `itertools.zip_longest()`
+- With this function, the longest collection is considered to make the composition.
+- Use the parameter fillvalue, we can complete the collections with a custom value.
