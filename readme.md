@@ -190,6 +190,23 @@ Insights:
 - Use _ to define attributes that should not be used externally. This definition is good practice but does not effectively prevent the attribute from being used.
 - `import itertools` can be used to define an infinite counter. Define `it = itertool.count(start= , step= )` and use `next(it)` to jump into next number in iterator.
 
+# Bite 143 - Look up a value in 3 dictionaries - 17/04/2023
+
+In this bite I actually have to merge three dicts that contain repeated keys. To do that the simple dict(\**dict1 ,\**dict2) doesn't work so I have to try another solution. It follows three possible solutions.
+
+```python
+# 1
+all_groups = group1 | group2 | group3 # pipe operator(merge)
+
+# 2
+all_groups = dict(group1, **group2)
+all_groups = dict(all_groups, **group3)
+
+# 3
+all_groups = ChainMap(group3, group2, group1)
+
+```
+
 # Bite 154 - Write your own data class - 13/06/2020
 
 As you might have noticed we are now on Python 3.7 so time for a Bite on data classes which were introduced with [PEP 557](https://www.python.org/dev/peps/pep-0557/).
