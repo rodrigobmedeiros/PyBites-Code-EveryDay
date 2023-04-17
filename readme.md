@@ -207,6 +207,8 @@ all_groups = ChainMap(group3, group2, group1)
 
 ```
 
+For more info visit: https://peps.python.org/pep-0584/
+
 # Bite 154 - Write your own data class - 13/06/2020
 
 As you might have noticed we are now on Python 3.7 so time for a Bite on data classes which were introduced with [PEP 557](https://www.python.org/dev/peps/pep-0557/).
