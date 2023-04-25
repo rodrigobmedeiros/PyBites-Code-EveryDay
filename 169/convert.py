@@ -1,6 +1,8 @@
+
+# Same idea of plataform solution
 FACTORS = {
     'cm': 2.540,
-    'in': 0.3937008
+    'in': 0.3937008 # The problem here is the precision
 }
 
 def convert(value: float, fmt: str) -> float:
@@ -12,9 +14,11 @@ def convert(value: float, fmt: str) -> float:
     """
     fmt = fmt.lower()
 
+    # The solution approach was use try/except
     if not (isinstance(value, float) or isinstance(value, int)):
         raise TypeError
     
+    # As now, I have keys() I can verify if the fmt is present there.
     if not ('in' in fmt or 'cm' in fmt):
         raise ValueError
     
